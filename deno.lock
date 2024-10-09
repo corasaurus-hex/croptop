@@ -13,7 +13,8 @@
     "jsr:@std/testing@^1.0.3": "1.0.3",
     "npm:@types/node@*": "22.5.4",
     "npm:extract-pg-schema@*": "5.1.2",
-    "npm:extract-pg-schema@^5.1.2": "5.1.2"
+    "npm:extract-pg-schema@^5.1.2": "5.1.2",
+    "npm:postgres@^3.4.4": "3.4.4"
   },
   "jsr": {
     "@std/assert@1.0.6": {
@@ -263,6 +264,9 @@
         "xtend"
       ]
     },
+    "postgres@3.4.4": {
+      "integrity": "sha512-IbyN+9KslkqcXa8AO9fxpk97PA4pzewvpi2B3Dwy9u4zpV32QicaEdgmF3eSQUzdRk7ttDHQejNgAEr4XoeH4A=="
+    },
     "prelude-ls@1.1.2": {
       "integrity": "sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w=="
     },
@@ -403,7 +407,8 @@
       "jsr:@std/assert@1",
       "jsr:@std/expect@^1.0.4",
       "jsr:@std/testing@^1.0.3",
-      "npm:extract-pg-schema@^5.1.2"
+      "npm:extract-pg-schema@^5.1.2",
+      "npm:postgres@^3.4.4"
     ]
   }
 }
