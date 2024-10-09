@@ -14,6 +14,7 @@
     "npm:@types/node@*": "22.5.4",
     "npm:extract-pg-schema@*": "5.1.2",
     "npm:extract-pg-schema@^5.1.2": "5.1.2",
+    "npm:postgres@*": "3.4.4",
     "npm:postgres@^3.4.4": "3.4.4"
   },
   "jsr": {
