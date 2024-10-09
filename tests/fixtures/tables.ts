@@ -1,7 +1,5 @@
 import postgres from "npm:postgres";
-
-export const isTableExists = async (sql: postgres.Sql, tableName: string) =>
-  (await sql`SELECT to_regclass(${tableName}) IS NOT NULL AS exists`)[0].exists;
+import { isTableExists } from "../../src/pg.ts";
 
 export const createOrgTable = async (sql: postgres.Sql) =>
   isTableExists(sql, "org") ||
