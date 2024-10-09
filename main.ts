@@ -4,4 +4,4 @@ import { parseOptions } from "./src/cmd.ts";
 const options = await parseOptions();
 const schemas = await extractSchemas(options);
 console.log(options);
-console.log(schemas);
+console.log(schemas.public.tables[0]);

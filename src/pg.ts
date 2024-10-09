@@ -1,6 +1,22 @@
 import extractPgSchema from "npm:extract-pg-schema";
 import postgres from "npm:postgres";
 
+export const intTypeMap = {
+  "pg_catalog.int2": "smallint",
+  "pg_catalog.int4": "integer",
+  "pg_catalog.int8": "bigint",
+} as const;
+
+export const floatTypeMap = {
+  "pg_catalog.float4": "real",
+  "pg_catalog.float8": "double precision",
+} as const;
+
+export const textTypeMap = {
+  "pg_catalog.varchar": "character varying",
+  "pg_catalog.text": "text",
+} as const;
+
 export const extractSchemas = async (options: {
   host: string;
   port: number;
