@@ -1,0 +1,14 @@
+table:
+  name: part_component
+  schema: public
+object_relationships:
+  - name: part
+    using:
+      manual_configuration:
+        column_mapping:
+          org_id: org_id
+          part_id: id
+        insertion_order: null
+        remote_table:
+          name: part
+          schema: public

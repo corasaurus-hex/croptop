@@ -1,6 +1,7 @@
 services:
   postgres:
-    image: postgres:15
+    image: postgis/postgis:17-3.4
+    platform: linux/amd64
     restart: always
     ports:
       - "5432:5432"
@@ -10,8 +11,14 @@ services:
       POSTGRES_PASSWORD: postgrespassword
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
   graphql-engine:
-    image: hasura/graphql-engine:v2.42.0
+    image: hasura/graphql-engine:v2.42.0.cli-migrations-v3
     ports:
       - "8080:8080"
     restart: always
@@ -30,5 +37,19 @@ services:
       ## uncomment next line to set an admin secret
       # HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
       # HASURA_GRAPHQL_METADATA_DEFAULTS: '{}'
+    volumes:
+      - ./tests/fixtures/hasura/metadata:/hasura-metadata
+      - ./tests/fixtures/hasura/migrations:/hasura-migrations
+      - ./tests/fixtures/hasura/seeds:/hasura-seeds
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/healthz?strict=true"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    depends_on:
+      postgres:
+        condition: service_healthy
+
 volumes:
   db_data:

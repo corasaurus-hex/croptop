@@ -1,0 +1,20 @@
+table:
+  name: part
+  schema: public
+object_relationships:
+  - name: widget
+    using:
+      foreign_key_constraint_on:
+        - org_id
+        - widget_id
+array_relationships:
+  - name: part_components
+    using:
+      manual_configuration:
+        column_mapping:
+          id: part_id
+          org_id: org_id
+        insertion_order: null
+        remote_table:
+          name: part_component
+          schema: public
