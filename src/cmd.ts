@@ -17,6 +17,7 @@ export const parseOptions = async () => {
         value: (value: string) => value.split(","),
       }
     )
+    .env("HASURA_URL=<url:string>", "Hasura URL")
     .option("-H, --host <host:string>", "Postgres host", {
       default: "localhost",
     })
@@ -37,6 +38,9 @@ export const parseOptions = async () => {
         value: (value: string) => value.split(","),
       }
     )
+    .option("-U, --hasura-url <url:string>", "Hasura URL", {
+      default: "http://localhost:8080/v1",
+    })
     .parse(Deno.args);
 
   return options;
