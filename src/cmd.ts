@@ -38,9 +38,18 @@ export const parseOptions = async () => {
         value: (value: string) => value.split(","),
       }
     )
-    .option("-U, --hasura-url <url:string>", "Hasura URL", {
-      default: "http://localhost:8080/v1",
-    })
+    .option(
+      "-m, --hasura-metadata-path <path:string>",
+      "Hasura metadata directory path",
+      {
+        default: "./tests/fixtures/hasura/metadata/",
+      }
+    )
+    .option(
+      "-D, --hasura-database-name <name:string>",
+      "Hasura database name",
+      { default: "default" }
+    )
     .parse(Deno.args);
 
   return options;
