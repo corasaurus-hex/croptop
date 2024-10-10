@@ -12,10 +12,10 @@ services:
       POSTGRES_USER: croptopuser
       POSTGRES_DB: croptopdb
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U croptopuser"]
+      test: ["CMD-SHELL", "pg_isready -U croptopuser -d croptopdb"]
       interval: 10s
       timeout: 10s
-      retries: 3
+      retries: 10
       start_period: 30s
   graphql-engine:
     image: hasura/graphql-engine:v2.42.0.cli-migrations-v3
