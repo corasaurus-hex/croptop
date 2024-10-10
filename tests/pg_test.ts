@@ -2,12 +2,11 @@ import { afterAll, beforeAll, describe, it } from "jsr:@std/testing/bdd";
 import { expect } from "jsr:@std/expect";
 import { extractSchemas } from "../src/pg.ts";
 import postgres from "npm:postgres";
-import { createTables } from "./fixtures/tables.ts";
 
 describe("pg tests", () => {
   let sql: postgres.Sql;
 
-  beforeAll(async () => {
+  beforeAll(() => {
     sql = postgres({
       host: "localhost",
       port: 5656,
@@ -15,8 +14,6 @@ describe("pg tests", () => {
       password: "croptoppassword",
       database: "croptopdb",
     });
-
-    await createTables(sql);
   });
 
   afterAll(async () => {
