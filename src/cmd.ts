@@ -20,15 +20,15 @@ export const parseOptions = async () => {
     .option("-H, --host <host:string>", "Postgres host", {
       default: "localhost",
     })
-    .option("-p, --port <port:number>", "Postgres port", { default: 5432 })
+    .option("-p, --port <port:number>", "Postgres port", { default: 5656 })
     .option("-u, --user <user:string>", "Postgres user", {
-      default: "postgres",
+      default: "croptopuser",
     })
     .option("-P, --password <password:string>", "Postgres password", {
-      default: "postgrespassword",
+      default: "croptoppassword",
     })
     .option("-d, --database <database:string>", "Postgres database", {
-      default: "postgres",
+      default: "croptopdb",
     })
     .option(
       "-s, --schema <schema:string>",

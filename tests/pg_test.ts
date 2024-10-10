@@ -10,10 +10,10 @@ describe("pg tests", () => {
   beforeAll(async () => {
     sql = postgres({
       host: "localhost",
-      port: 5432,
-      user: "postgres",
-      password: "postgrespassword",
-      database: "postgres",
+      port: 5656,
+      user: "croptopuser",
+      password: "croptoppassword",
+      database: "croptopdb",
     });
 
     await createTables(sql);
@@ -27,10 +27,10 @@ describe("pg tests", () => {
     expect(
       await extractSchemas({
         host: "localhost",
-        port: 5432,
-        user: "postgres",
-        password: "postgrespassword",
-        database: "postgres",
+        port: 5656,
+        user: "croptopuser",
+        password: "croptoppassword",
+        database: "croptopdb",
       })
     ).toBeTruthy();
   });
